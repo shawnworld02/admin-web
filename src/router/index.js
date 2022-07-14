@@ -2,7 +2,7 @@
  * @Author: Shawn_Liang 102449877+shawnworld02@users.noreply.github.com
  * @Date: 2022-07-13 14:02:58
  * @LastEditors: Shawn_Liang 102449877+shawnworld02@users.noreply.github.com
- * @LastEditTime: 2022-07-13 20:47:52
+ * @LastEditTime: 2022-07-14 10:44:43
  * @FilePath: /admin-web/src/router/index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -25,6 +25,19 @@ const routes = [
     path: "/home",
     name: "Home",
     component: () => import("@/components/Home.vue"),
+    redirect: "/welcome",
+    children: [
+      {
+        path: "/welcome",
+        name: "Welcome",
+        component: () => import("@/components/Welcome.vue"),
+      },
+      {
+        path: "/users",
+        name: "Users",
+        component: () => import("@/components/users/Users"),
+      },
+    ],
   },
 ];
 
@@ -34,10 +47,10 @@ const router = new VueRouter({
 
 //挂载路由导航守卫
 router.beforeEach((to, from, next) => {
-  if (to.path === "/login") next();
+  if (to.path === "/login") return next();
   //获取token
   const tokenStr = window.sessionStorage.getItem("token");
-  if (!tokenStr) next("/login");
+  if (!tokenStr) return next("/login");
   next();
 });
 

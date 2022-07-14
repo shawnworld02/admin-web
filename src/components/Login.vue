@@ -33,7 +33,7 @@
         </el-form-item>
         <!-- 按钮区域 -->
         <el-form-item class="btns">
-          <el-button type="primary" @click="login">登陆</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
         </el-form-item>
       </el-form>
@@ -85,7 +85,6 @@ export default {
         //1.将登录成功后的token，保存到客户端的sessionStorage中
         //1.1项目中除了登录以外的其他API接口，必须在登录后才能访问
         //1.2token只应在当前网站打开期间生效，所以将token保存在sessionStorage中
-        console.log(res);
         window.sessionStorage.setItem("token", res.data.token);
         //2.通过编程式导航跳转到后台主页，路由地址是/home
         this.$router.push("/home");
@@ -96,7 +95,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .login_container {
-  background-color: #75dcbf;
+  background-color: #3a3c3c;
   height: 100%;
 }
 .login_box {
@@ -108,14 +107,14 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px rgb(118, 9, 9);
   .avatar_box {
     height: 130px;
     width: 130px;
     border: 1px solid #eee;
     border-radius: 50%;
     padding: 10px;
-    box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px rgb(118, 9, 9);
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
