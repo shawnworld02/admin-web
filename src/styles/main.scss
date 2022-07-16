@@ -25,3 +25,24 @@ body,
   margin-top:15px;
 }
 
+.el-cascader-panel {
+  height: 300px;
+}
+
+.el-cascader-menu {
+  .el-radio {
+    display: table;
+    vertical-align: middle;
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding-left: 10px;
+    .el-radio__input {
+      display: table-cell;
+      vertical-align: middle;
+      visibility: hidden;
+    }
+  }
+}

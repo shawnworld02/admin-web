@@ -267,6 +267,7 @@ export default {
       this.$message.success("删除权限成功!");
       //this.getRolesList 防止页面刷新，避免使用
       role.children = res.data;
+      console.log(res.data);
     },
 
     //展示分配权限的对话框

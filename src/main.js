@@ -10,6 +10,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import TreeTable from "vue-table-with-tree-grid";
 import "@/assets/fonts/iconfont.scss";
 import "@/styles/normalize.scss";
 import "@/styles/main.scss";
@@ -42,8 +43,8 @@ import {
   Tree,
   Select,
   Option,
+  Cascader,
 } from "element-ui";
-("element-ui");
 
 import axios from "axios";
 //配置请求的根路径
@@ -88,6 +89,9 @@ Vue.use(Tag);
 Vue.use(Tree);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Cascader);
+//全局注册TreeTable组件
+Vue.component("tree-table", TreeTable);
 new Vue({
   router,
   store,
