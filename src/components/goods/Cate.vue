@@ -55,7 +55,7 @@
             type="danger"
             icon="el-icon-delete"
             size="mini"
-            @click="deleteCate(table.row.cat_id)"
+            @click="deleteCate(table.$index)"
             >删除</el-button
           >
         </template>
@@ -263,8 +263,8 @@ export default {
       this.addCateForm.cat_level = 0;
     },
     //根据id删除商品分类
-    async deleteCate(id) {
-      //弹框询问用户是否删除数据
+    async deleteCate(index) {
+      //弹框询问用户是否删除数据;
       const confirmRes = await this.$confirm(
         "此操作将永久删除该用户信息, 是否继续?",
         "提示",
@@ -279,13 +279,16 @@ export default {
       if (confirmRes !== "confirm") {
         return this.$message.info("您已取消删除");
       }
+      //确认删除;
+      // const { data: res } = await this.$http.delete(`categories/${id}`);
+      // if (res.meta.status !== 200) this.$message.error("删除商品分类失败！");
 
       //确认删除
-      const { data: res } = await this.$http.delete(`categories/${id}`);
-      if (res.meta.status !== 200) this.$message.error("删除用户信息失败！");
+      // this.cateList.splice(scope.row.cat_id, 1);
 
-      this.$message.success("您已删除该商品分类");
-      this.getCateList();
+      // this.$message.success("您已删除该商品分类");
+      // this.getCateList();
+      console.log(index);
     },
   },
 };

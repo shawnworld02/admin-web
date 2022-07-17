@@ -44,6 +44,9 @@ import {
   Select,
   Option,
   Cascader,
+  Alert,
+  Tabs,
+  TabPane,
 } from "element-ui";
 
 import axios from "axios";
@@ -90,6 +93,9 @@ Vue.use(Tree);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Cascader);
+Vue.use(Alert);
+Vue.use(Tabs);
+Vue.use(TabPane);
 //全局注册TreeTable组件
 Vue.component("tree-table", TreeTable);
 new Vue({
