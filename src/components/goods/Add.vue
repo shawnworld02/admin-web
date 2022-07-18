@@ -279,7 +279,7 @@ export default {
         this.manyTableData.forEach((item) => {
           const newInfo = {
             attr_id: item.attr_id,
-            attr_value: item.vals.join(" "),
+            attr_value: item.attr_vals.join(" "),
           };
           this.addForm.attrs.push(newInfo);
         });
@@ -287,7 +287,7 @@ export default {
         this.onlyTableData.forEach((item) => {
           const newInfo = {
             attr_id: item.attr_id,
-            attr_value: item.vals,
+            attr_value: item.attr_vals,
           };
           this.addForm.attrs.push(newInfo);
         });
